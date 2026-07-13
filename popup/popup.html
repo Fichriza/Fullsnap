@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="../icons/icon32.png" alt="" width="20" height="20">
+      <span>FullSnap</span>
+    </div>
+    <button id="btnSettings" class="icon-btn" data-i18n-title="settings">⚙</button>
+  </header>
+
+  <main>
+    <div id="notice" class="notice" hidden></div>
+
+    <button id="btnFull" class="primary-btn">
+      <span class="glyph">↧</span><span data-i18n="fullPage"></span>
+    </button>
+
+    <div class="row">
+      <button id="btnVisible" class="secondary-btn">
+        <span class="glyph">▭</span><span data-i18n="visibleArea"></span>
+      </button>
+      <button id="btnSelect" class="secondary-btn">
+        <span class="glyph">✄</span><span data-i18n="selectArea"></span>
+      </button>
+      <button id="btnMap" class="secondary-btn" data-i18n-title="mapModeTitle">
+        <span class="glyph">◈</span><span data-i18n="mapMode"></span>
+      </button>
+    </div>
+
+    <div id="mapGridRow" class="opt-row map-grid-row" hidden>
+      <span class="opt-label" data-i18n="mapGrid"></span>
+      <div class="segment">
+        <label><input type="radio" name="mapgrid" value="1" checked><span>1×1</span></label>
+        <label><input type="radio" name="mapgrid" value="2"><span>2×2</span></label>
+        <label><input type="radio" name="mapgrid" value="3"><span>3×3</span></label>
+        <label><input type="radio" name="mapgrid" value="4"><span>4×4</span></label>
+      </div>
+    </div>
+
+    <button id="btnAssets" class="secondary-btn assets-btn">
+      <span class="glyph">⬇</span><span data-i18n="downloadAssets"></span>
+    </button>
+
+    <div class="options">
+      <div class="opt-row">
+        <span class="opt-label" data-i18n="format"></span>
+        <div class="segment">
+          <label><input type="radio" name="format" value="png"><span>PNG</span></label>
+          <label><input type="radio" name="format" value="jpeg"><span>JPEG</span></label>
+        </div>
+      </div>
+      <div class="opt-row">
+        <span class="opt-label" data-i18n="output"></span>
+        <div class="segment">
+          <label><input type="radio" name="output" value="image"><span data-i18n="image"></span></label>
+          <label><input type="radio" name="output" value="pdf"><span data-i18n="pdf"></span></label>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="kbd" id="shortcutHint">Ctrl+Shift+S</span>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

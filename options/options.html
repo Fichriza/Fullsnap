@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FullSnap Settings</title>
+  <link rel="icon" href="../icons/icon32.png">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <h1>📸 <span data-i18n="optionsTitle"></span></h1>
+
+    <section>
+      <h2 data-i18n="sectionCapture"></h2>
+      <div class="field">
+        <label for="scrollDelay" data-i18n="scrollDelay"></label>
+        <input type="number" id="scrollDelay" min="0" max="5000" step="50">
+        <p class="hint" data-i18n="scrollDelayHint"></p>
+      </div>
+      <div class="field">
+        <label for="maxHeight" data-i18n="maxHeight"></label>
+        <input type="number" id="maxHeight" min="1000" max="200000" step="1000">
+        <p class="hint" data-i18n="maxHeightHint"></p>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="hideSticky"> <span data-i18n="hideSticky"></span>
+      </label>
+    </section>
+
+    <section>
+      <h2 data-i18n="sectionOutput"></h2>
+      <div class="field">
+        <label for="format" data-i18n="defaultFormat"></label>
+        <select id="format">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="jpegQuality"><span data-i18n="jpegQuality"></span> <span id="jpegQualityVal"></span></label>
+        <input type="range" id="jpegQuality" min="60" max="100" step="1">
+      </div>
+      <div class="field">
+        <label for="filenamePattern" data-i18n="filenamePattern"></label>
+        <input type="text" id="filenamePattern">
+        <p class="hint" data-i18n="filenameHint"></p>
+      </div>
+      <div class="field">
+        <label for="ocrLang" data-i18n="ocrLangLabel"></label>
+        <select id="ocrLang">
+          <option value="eng">English</option>
+          <option value="ind">Bahasa Indonesia</option>
+          <option value="eng+ind">English + Bahasa Indonesia</option>
+        </select>
+        <p class="hint" data-i18n="ocrLangHint"></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="sectionPdf"></h2>
+      <div class="field">
+        <label for="pdfPaper" data-i18n="defaultPaper"></label>
+        <select id="pdfPaper">
+          <option value="fit" data-i18n="fitToImage"></option>
+          <option value="a4">A4</option>
+          <option value="letter">Letter</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pdfOrientation" data-i18n="orientation"></label>
+        <select id="pdfOrientation">
+          <option value="portrait" data-i18n="portrait"></option>
+          <option value="landscape" data-i18n="landscape"></option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pdfMargin" data-i18n="defaultMargin"></label>
+        <select id="pdfMargin">
+          <option value="none" data-i18n="marginNone"></option>
+          <option value="small" data-i18n="marginSmall"></option>
+          <option value="normal" data-i18n="marginNormal"></option>
+        </select>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="pdfMetadata"> <span data-i18n="pdfMetadataOpt"></span>
+      </label>
+    </section>
+
+    <section>
+      <h2 data-i18n="sectionGeneral"></h2>
+      <div class="field">
+        <label data-i18n="language"></label>
+        <p class="hint" data-i18n="languageNote"></p>
+      </div>
+      <div class="field">
+        <label data-i18n="shortcut"></label>
+        <button id="btnShortcut" class="btn" data-i18n="shortcutChange"></button>
+      </div>
+      <div class="field">
+        <label for="theme" data-i18n="theme"></label>
+        <select id="theme">
+          <option value="auto" data-i18n="themeAuto"></option>
+          <option value="light" data-i18n="themeLight"></option>
+          <option value="dark" data-i18n="themeDark"></option>
+        </select>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

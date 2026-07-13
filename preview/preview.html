@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FullSnap Preview</title>
+  <link rel="icon" href="../icons/icon32.png">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">📸 <span data-i18n="previewTitle"></span></div>
+    <div class="filename" id="fileLabel"></div>
+    <div class="topbar-right">
+      <label class="zoom-ctl">
+        <span data-i18n="zoom"></span>
+        <select id="zoomSelect">
+          <option value="fit" data-i18n="fit"></option>
+          <option value="0.25">25%</option>
+          <option value="0.5">50%</option>
+          <option value="1" selected>100%</option>
+        </select>
+      </label>
+      <button id="btnSettings" class="icon-btn" data-i18n-title="settings">⚙</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main id="canvasArea">
+      <div id="canvasWrap" class="canvas-wrap">
+        <div id="loading" class="loading">…</div>
+        <div id="cropOverlay" class="crop-overlay" hidden>
+          <div id="cropRect" class="crop-rect"></div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="panel">
+      <h2 data-i18n="result"></h2>
+      <dl class="info">
+        <dt data-i18n="dimensions"></dt><dd id="infoDims">—</dd>
+        <dt data-i18n="sourceUrl"></dt><dd><a id="infoUrl" target="_blank" rel="noopener"></a></dd>
+      </dl>
+      <div id="multiPartNote" class="note" hidden></div>
+
+      <div class="actions">
+        <button id="btnCrop" class="action-btn">✂ <span data-i18n="crop"></span></button>
+        <div id="gridPanel" class="grid-panel" hidden>
+          <div class="grid-info">⊞ <span data-i18n="mapGridActive"></span> <strong id="gridLabel"></strong></div>
+          <button id="btnDownloadTiles" class="action-btn accent" data-i18n="downloadTiles"></button>
+        </div>
+        <div id="cropActions" class="row" hidden>
+          <button id="btnCropApply" class="action-btn accent" data-i18n="applyCrop"></button>
+          <button id="btnCropCancel" class="action-btn" data-i18n="cancelCrop"></button>
+        </div>
+        <button id="btnCopy" class="action-btn">📋 <span data-i18n="copy"></span></button>
+        <button id="btnOcr" class="action-btn">🔤 <span data-i18n="ocr"></span></button>
+        <div id="ocrPanel" class="ocr-panel" hidden>
+          <div id="ocrStatus" class="ocr-status"></div>
+          <textarea id="ocrText" rows="10" spellcheck="false" hidden></textarea>
+          <div class="row" id="ocrActions" hidden>
+            <button id="btnOcrCopy" class="action-btn" data-i18n="copyText"></button>
+            <button id="btnOcrTxt" class="action-btn" data-i18n="downloadTxt"></button>
+          </div>
+        </div>
+        <div class="row">
+          <button id="btnPng" class="action-btn">⬇ <span data-i18n="downloadPng"></span></button>
+          <button id="btnJpeg" class="action-btn">⬇ <span data-i18n="downloadJpeg"></span></button>
+        </div>
+        <button id="btnPdfToggle" class="action-btn accent">📄 <span data-i18n="saveAsPdf"></span> ▾</button>
+
+        <div id="pdfPanel" class="pdf-panel" hidden>
+          <div class="field">
+            <span class="field-label" data-i18n="paperSize"></span>
+            <label><input type="radio" name="paper" value="fit"> <span data-i18n="fitToImage"></span></label>
+            <label><input type="radio" name="paper" value="a4"> A4</label>
+            <label><input type="radio" name="paper" value="letter"> Letter</label>
+          </div>
+          <div class="field" id="orientField">
+            <span class="field-label" data-i18n="orientation"></span>
+            <label><input type="radio" name="orient" value="portrait"> <span data-i18n="portrait"></span></label>
+            <label><input type="radio" name="orient" value="landscape"> <span data-i18n="landscape"></span></label>
+          </div>
+          <div class="field">
+            <span class="field-label" data-i18n="margin"></span>
+            <label><input type="radio" name="pmargin" value="none"> <span data-i18n="marginNone"></span></label>
+            <label><input type="radio" name="pmargin" value="small"> <span data-i18n="marginSmall"></span></label>
+            <label><input type="radio" name="pmargin" value="normal"> <span data-i18n="marginNormal"></span></label>
+          </div>
+          <label class="field checkbox">
+            <input type="checkbox" id="pdfMeta"> <span data-i18n="includeMetadata"></span>
+          </label>
+          <button id="btnPdf" class="action-btn accent" data-i18n="generatePdf"></button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="../vendor/tesseract/tesseract.min.js"></script>
+  <script type="module" src="preview.js"></script>
+</body>
+</html>

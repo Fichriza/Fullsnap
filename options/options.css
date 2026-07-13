@@ -1,0 +1,92 @@
+:root {
+  --bg: #f2f2f2;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #6e6e6e;
+  --accent: #111111;
+  --border: #e4e4e4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --text: #f2f2f2;
+    --muted: #9a9a9a; --accent: #f2f2f2; --border: #272727;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f2f2f2; --surface: #ffffff; --text: #111111;
+  --muted: #6e6e6e; --accent: #111111; --border: #e4e4e4;
+}
+:root[data-theme="dark"] {
+  --bg: #0a0a0a; --surface: #141414; --text: #f2f2f2;
+  --muted: #9a9a9a; --accent: #f2f2f2; --border: #272727;
+}
+
+* { box-sizing: border-box; margin: 0; }
+[hidden] { display: none !important; }
+
+body {
+  font: 13px/1.6 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page { max-width: 620px; margin: 0 auto; padding: 32px 20px 60px; }
+h1 { font-size: 20px; margin-bottom: 24px; }
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+.field > label { display: block; margin-bottom: 6px; font-weight: 500; }
+.hint { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+input[type="number"], input[type="text"], select {
+  width: 100%;
+  max-width: 280px;
+  padding: 7px 10px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+input[type="range"] { width: 280px; accent-color: var(--accent); }
+input[type="checkbox"] { accent-color: var(--accent); }
+
+.checkbox { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+.btn {
+  padding: 7px 14px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+.btn:hover { border-color: var(--accent); }
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 100;
+}
