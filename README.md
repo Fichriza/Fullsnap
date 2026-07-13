@@ -4,7 +4,6 @@ Chrome extension (Manifest V3) that captures a **full web page** via automatic
 scroll & capture, stitches the frames into one image, and saves it as **PNG,
 JPEG, or PDF** — entirely locally, with no data ever leaving the browser.
 
-Built from [PRD-FullPage-Screenshot-Extension.md](https://github.com/) v1.0 (12 Jul 2026).
 
 ## Install (developer mode)
 
